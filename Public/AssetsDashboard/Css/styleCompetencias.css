@@ -1,0 +1,138 @@
+:root {
+  --primary-color: #39A900;
+  --secondary-color: #00324D;
+  --complementary-color1: #385c57;
+  --complementary-color2: #e6e6e6;
+  --degrade: linear-gradient(#39a900, #A1D687, #fff);
+  --font-size-titulos-h1: 48px;
+  --font-size-titulos-h2: 40px;
+  --font-size-titulos-h3: 32px;
+  --font-size-titulos-h4: 24px;
+  --font-size-parrafos: 24px;
+  --tipografia-titulos: "Work Sans", sans-serif;
+  --tipografia-parrafos: "Roboto", sans-serif;
+}
+
+
+
+
+.formulario {
+  display: flex;
+  font-family: var(--tipografia-titulos);
+}
+
+.pasos {
+  color: rgb(168, 156, 156);
+  font-size: 15px;
+  font-family: var(--tipografia-parrafos);
+}
+
+
+.input,
+.select {
+  width: 100%;
+  background: white;
+  border: none;
+  height: 45px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 1px solid #a0a0a0;
+}
+
+.card-form {
+  padding: 20px;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid var(--primary-color);
+}
+
+.select:focus {
+  outline: none;
+  border: 2px solid var(--primary-color);
+}
+
+.form-button {
+  width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+  background: var(--primary-color);
+  color: #fff;
+  /* padding-block: 10px; */
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: #999 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  text-align: center !important;
+}
+
+.form-button:hover {
+  transform: scale(1.03);
+  box-shadow: #999 0px 23px 10px -20px;
+  border-radius: 0;
+}
+
+.form-button:active {
+  transform: scale(0.95);
+  box-shadow: #999 0px 15px 10px -10px;
+}
+
+.form-button-sec {
+  width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+  background: var(--complementary-color1);
+  color: #fff;
+  padding-block: 10px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: #999 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-button-sec:hover {
+  transform: scale(1.03);
+  box-shadow: #999 0px 23px 10px -20px;
+  border-radius: 0;
+}
+
+.form-button-sec:active {
+  transform: scale(0.95);
+  box-shadow: #999 0px 15px 10px -10px;
+}
+
+.count-competencias{
+  color: #7373738c;
+  border: 0 solid transparent;
+  background: transparent;
+  transition: 1s;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 2px 1px 4px rgb(127 165 173 / 29%), -4px -2px 9px #ffffff;
+  border-radius: 4px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.count-competencias h2{
+  font-size: 22px;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin: 0;
+}
+
+.count-competencias p{
+  font-size: 30px;
+  color: #666;
+  font-weight: 700;
+  margin:0 0 0 20px;
+}
+
+.row.inicial{
+  margin-bottom: 30px;
+  align-items: flex-end;
+}

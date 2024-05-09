@@ -1,0 +1,70 @@
+/* IMPORT DE TIPOGRAFIAS_________________________________________ */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Khmer:wght@100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+:root {
+    scroll-behavior: smooth;
+    --primary-color: #39A900;
+    --secondary-color: #00324D;
+    --complementary-color1: #385c57;
+    --complementary-color2: #e6e6e6;
+    --degrade: linear-gradient(#39a900, #A1D687, #fff);
+    --font-size-titulos-h1: 48px;    
+    --font-size-titulos-h2: 40px;
+    --font-size-titulos-h3: 32px;
+    --font-size-titulos-h4: 24px;
+    --font-size-parrafos: 24px;
+  
+  }
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    background: #f6f9ff;
+    color: #444444;
+  }
+  
+  a {
+    color: #39A900;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #717ff5;
+    text-decoration: none;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Work Sans", sans-serif;
+  }
+/* estilos nuevos de la plantilla */
+
+.texto-principal{
+    color: var(--primary-color) !important;
+}
+.texto-buton {
+    background: var(--primary-color);
+}
+
+.modulos {
+    justify-content: space-evenly;
+}
+
+.bg-home{
+    background: #38a90057 !important;
+}
+.team{
+    justify-content: space-evenly;
+}
+.carga {
+    background: var(--primary-color);
+}
