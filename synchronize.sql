@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-05-2024 a las 05:37:57
+-- Tiempo de generación: 09-05-2024 a las 05:56:22
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -56,6 +56,7 @@ CREATE TABLE `fst_competencias` (
   `fst_nom` varchar(100) DEFAULT NULL,
   `fst_codigo_compe` int(11) NOT NULL,
   `fst_programa` int(11) DEFAULT NULL,
+  `fst_num_resultados` int(11) DEFAULT NULL,
   `fst_tipo` varchar(50) DEFAULT NULL,
   `fst_fase_proyecto` varchar(50) DEFAULT NULL,
   `fst_horas` tinyint(4) DEFAULT NULL
@@ -65,10 +66,15 @@ CREATE TABLE `fst_competencias` (
 -- Volcado de datos para la tabla `fst_competencias`
 --
 
-INSERT INTO `fst_competencias` (`fst_idc`, `fst_nom`, `fst_codigo_compe`, `fst_programa`, `fst_tipo`, `fst_fase_proyecto`, `fst_horas`) VALUES
-(13, 'competencia 1', 1, 2, 'Tecnica', 'fase analisis', 12),
-(14, 'competencia 2', 2, 2, 'transversal', 'fase diseno', 23),
-(15, 'competencia 3', 3, 2, 'Tecnica', 'fase analisis', 34);
+INSERT INTO `fst_competencias` (`fst_idc`, `fst_nom`, `fst_codigo_compe`, `fst_programa`, `fst_num_resultados`, `fst_tipo`, `fst_fase_proyecto`, `fst_horas`) VALUES
+(13, 'competencia 1', 1, 2, 5, 'Tecnica', 'fase analisis', 12),
+(14, 'competencia 2', 2, 2, 3, 'transversal', 'fase diseno', 23),
+(15, 'competencia 3', 3, 2, 2, 'Tecnica', 'fase analisis', 34),
+(16, 'APLICACIÓN DE CONOCIMIENTOS DE LAS CIENCIAS NATURALES DE ACUERDO CON SITUACIONES DEL CONTEXTO PRODUC', 220201501, 3, 5, 'transversal', 'fase analisis', 20),
+(17, 'APLICAR PRÁCTICAS DE PROTECCIÓN AMBIENTAL, SEGURIDAD Y SALUD EN EL TRABAJO DE ACUERDO CON LAS POLÍTI', 220601501, 3, 6, 'transversal', 'fase analisis', 20),
+(18, 'Controlar la calidad del servicio de software de acuerdo con los estándares técnicos', 220501098, 3, 2, 'Tecnica', 'fase analisis', 20),
+(19, 'DESARROLLAR LA SOLUCIÓN DE SOFTWARE DE ACUERDO CON EL DISEÑO Y METODOLOGÍAS DE DESARROLLO', 220501096, 3, 1, 'Tecnica', 'fase analisis', 20),
+(20, 'DESARROLLAR PROCESOS DE COMUNICACIÓN EFICACES Y EFECTIVOS, TENIENDO EN CUENTA SITUACIONES DE ORDEN S', 240201524, 3, 9, 'Tecnica', 'fase analisis', 20);
 
 -- --------------------------------------------------------
 
@@ -304,8 +310,9 @@ CREATE TABLE `fst_programas` (
 --
 
 INSERT INTO `fst_programas` (`fst_idp`, `fst_nom`, `fst_red_tecn`, `fst_tipo_formacion`, `fst_duracionHoras`, `fst_duracionTrimestres`, `fst_abreviacion`, `fst_numero_compet`) VALUES
-(1, 'Analisis y Desarrollo de Software', 'TECNOLOGÍAS DE LA INFORMACIÓN, DISEÑO Y DESARROLLO DE SOFTWARE', 'Tecnólogo', 3984, 24, 'ADSO', 50),
-(2, 'Diseño Industrial', 'Diseño e implementación para la industria', 'Tecnólogo', 1900, 8, 'DI', 3);
+(1, 'Mecatronica', 'TECNOLOGÍAS DE LA INFORMACIÓN, DISEÑO Y DESARROLLO DE SOFTWARE', 'Tecnólogo', 2500, 7, 'MCT', 8),
+(2, 'Diseño Industrial', 'Diseño e implementación para la industria', 'Tecnólogo', 1900, 8, 'DI', 3),
+(3, 'Analisis y Desarrollo de Software', 'TECNOLOGÍAS DE LA INFORMACIÓN, DISEÑO Y DESARROLLO DE SOFTWARE', 'Técnico', 2500, 7, 'ADSO', 5);
 
 -- --------------------------------------------------------
 
@@ -351,7 +358,7 @@ CREATE TABLE `fst_prog_instructores` (
 
 CREATE TABLE `fst_resultados` (
   `fst_idre` int(11) NOT NULL,
-  `fst_entregables` varchar(200) DEFAULT NULL,
+  `fst_codigo_orden` int(11) DEFAULT NULL,
   `fst_nom` varchar(200) DEFAULT NULL,
   `fst_competencia` int(11) DEFAULT NULL,
   `fst_horas_pres` int(11) DEFAULT NULL,
@@ -362,10 +369,18 @@ CREATE TABLE `fst_resultados` (
 -- Volcado de datos para la tabla `fst_resultados`
 --
 
-INSERT INTO `fst_resultados` (`fst_idre`, `fst_entregables`, `fst_nom`, `fst_competencia`, `fst_horas_pres`, `fst_horas_auto`) VALUES
-(1, 'Entregable 1', 'resultado 1', 13, 12, 12),
-(2, 'Entregable 2', 'resultado 2', 13, 5, 12),
-(3, 'Entregable 3', 'resultado 3', 13, 4, 3);
+INSERT INTO `fst_resultados` (`fst_idre`, `fst_codigo_orden`, `fst_nom`, `fst_competencia`, `fst_horas_pres`, `fst_horas_auto`) VALUES
+(1, NULL, 'resultado 1', 13, 12, 12),
+(2, NULL, 'resultado 2', 13, 5, 12),
+(3, NULL, 'resultado 3', 13, 4, 3),
+(4, 1, 'resultado 1', NULL, 100, 101),
+(5, 2, 'resultado 2', NULL, 10, 11),
+(6, 3, 'resultado 3', NULL, 1500, 1501),
+(7, 1, 'resultado 1', 14, 1, 2),
+(8, 3, 'resultado 2', 14, 3, 4),
+(9, 2, 'resultado 3', 14, 5, 6),
+(10, 2, 'r1', 15, 1, 2),
+(11, 1, 'r2', 15, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -602,7 +617,7 @@ ALTER TABLE `fst_ambientes`
 -- AUTO_INCREMENT de la tabla `fst_competencias`
 --
 ALTER TABLE `fst_competencias`
-  MODIFY `fst_idc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `fst_idc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `fst_detalle_mallas`
@@ -668,7 +683,7 @@ ALTER TABLE `fst_mallas`
 -- AUTO_INCREMENT de la tabla `fst_programas`
 --
 ALTER TABLE `fst_programas`
-  MODIFY `fst_idp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `fst_idp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `fst_prog_ambientes`
@@ -692,7 +707,7 @@ ALTER TABLE `fst_prog_instructores`
 -- AUTO_INCREMENT de la tabla `fst_resultados`
 --
 ALTER TABLE `fst_resultados`
-  MODIFY `fst_idre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `fst_idre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `fst_roles`
@@ -710,7 +725,7 @@ ALTER TABLE `fst_trimestres_anio`
 -- AUTO_INCREMENT de la tabla `fst_usuarios`
 --
 ALTER TABLE `fst_usuarios`
-  MODIFY `fst_idu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `fst_idu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
